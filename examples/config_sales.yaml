@@ -1,0 +1,48 @@
+# Everything about how the report looks is defined here.
+# A new client = a new YAML file, no code changes.
+
+branding:
+  company_name: "IMG BIOINGENIERIA"
+  document_title: "REPORTE PARA ESTRUKY PUKY"
+  subtitle: "Automatically generated from the monthly sales export. Figures in USD."
+  logo_path: "assets/logo.png"      # optional: leave blank for a text-only letterhead
+  footer_text: "IMG Bioingenieria - Direccion de Laboratorio"
+  primary_color: "#11426C"
+  accent_color: "#009688"
+  text_color: "#282828"
+
+kpis:
+  - label: "Total revenue"
+    column: "Revenue"
+    aggregation: sum
+    number_format: "${:,.0f}"
+  - label: "Orders"
+    column: "Revenue"
+    aggregation: count
+    number_format: "{:,.0f}"
+  - label: "Average ticket"
+    column: "Revenue"
+    aggregation: mean
+    number_format: "${:,.0f}"
+  - label: "Units sold"
+    column: "Quantity"
+    aggregation: sum
+    number_format: "{:,.0f}"
+
+chart:
+  enabled: true
+  title: "Revenue by product"
+  kind: bar            # bar | barh | line
+  group_by: "Product"
+  value_column: "Revenue"
+  aggregation: sum
+  top_n: 10
+
+table:
+  columns: ["Date", "Region", "Product", "Sales Rep", "Quantity", "Revenue"]
+  headers:
+    Sales Rep: "Rep"
+  number_format: "{:,.2f}"
+  sort_by: "Revenue"
+  sort_desc: true
+  max_rows: 40

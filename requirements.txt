@@ -1,0 +1,5 @@
+fpdf2>=2.7
+pandas>=2.0
+openpyxl>=3.1
+matplotlib>=3.7
+PyYAML>=6.0
